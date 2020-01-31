@@ -1,0 +1,20 @@
+
+<div class="exam-pic">
+    <label for="file">Choose Exam</label>
+    <input type="file"
+           id="file"
+           (change)="handleExamPic($event.target.files[0])">
+</div>
+<div class="template-pic">
+    <label for="file">Choose Template</label>
+    <input type="file"
+           id="file"
+           (change)="handleTemplatePic($event.target.files[0])">
+</div>
+<button (click)="matchTemplate()" class="match-template">Match Template</button>
+<div *ngIf="result">
+    <img id="result" [src]='result'/>
+  </div>
+
+
+<div><button (click)="goBack()">Back</button></div>
