@@ -1,4 +1,4 @@
-
+<alert></alert>
 <div class="exam-pic">
     <label for="file">Choose Exam</label>
     <input type="file"
@@ -11,10 +11,14 @@
            id="file"
            (change)="handleTemplatePic($event.target.files[0])">
 </div>
-<button (click)="matchTemplate()" class="match-template">Match Template</button>
+<button (click)="scanExam()" class="match-template">Scan Exam</button>
+<button (click)="foo()" class="match-template">just for fun</button>
 <div *ngIf="result">
     <img id="result" [src]='result'/>
+    <div *ngIf="!doneEditing">
+      <button (click)="edit()">Edit</button>
+    </div>
   </div>
-
+  
 
 <div><button (click)="goBack()">Back</button></div>

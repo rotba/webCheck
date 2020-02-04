@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { ScanService } from './scan.service';
+import { WebCheckService } from './web-check.service';
 
-describe('ScanService', () => {
+describe('WebCheckService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: ScanService = TestBed.get(ScanService);
+    const service: WebCheckService = TestBed.get(WebCheckService);
     expect(service).toBeTruthy();
   });
 });
