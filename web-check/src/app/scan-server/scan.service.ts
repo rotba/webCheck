@@ -20,6 +20,22 @@ export class ScanService {
       }
     );
   }
+  scanExam2 (exam: any, template: any): Observable<any> {
+    return new Observable(
+      subscriber =>{
+        const result : ExamScanResult = this.scanner.matchTemplate2(exam, template);
+        return subscriber.next(result);
+      }
+    );
+  }
+  retMat (): Observable<any> {
+    return new Observable(
+      subscriber =>{
+        const result : any = this.scanner.mat();
+        return subscriber.next(result);
+      }
+    );
+  }
   scanExamineeID (pic: File): Observable<string> {
     return new Observable(
       subscriber =>{

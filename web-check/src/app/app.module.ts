@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule }    from '@angular/common/http';
+import { NgOpenCVModule } from 'ng-open-cv';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CheckComponent } from './check/check.component';
@@ -13,6 +14,16 @@ import { ScanExamComponent } from './scan-exam/scan-exam.component';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService }  from './in-memory-data.service';
 import { AlertModule } from './alert';
+import { HelloComponent } from './hello/hello.component';
+import { ExampleListComponent } from './example-list/example-list.component';
+import { FaceDetectionComponent } from './face-detection/face-detection.component';
+import { OpenCVOptions } from 'projects/ng-open-cv/src/public_api';
+
+const openCVConfig: OpenCVOptions = {
+  scriptUrl: `assets/opencv/opencv.js`,
+  wasmBinaryFile: 'wasm/opencv_js.wasm',
+  usingWasm: true
+};
 
 @NgModule({
   declarations: [
@@ -20,10 +31,14 @@ import { AlertModule } from './alert';
     CheckComponent,
     DashboardComponent,
     CreateKeyComponent,
-    ScanExamComponent
+    ScanExamComponent,
+    HelloComponent,
+    ExampleListComponent,
+    FaceDetectionComponent
   ],
   imports: [
     HttpClientModule,
+    NgOpenCVModule.forRoot(openCVConfig),
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
       ),

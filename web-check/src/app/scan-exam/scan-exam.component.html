@@ -1,20 +1,51 @@
 <alert></alert>
-<div class="exam-pic">
+<!-- <div class="exam-pic">
     <label for="file">Choose Exam</label>
     <input type="file"
            id="file"
            (change)="handleExamPic($event.target.files[0])">
+           <div class="caption">Exam <input (change)="readDataUrlExam($event)" #fileInput type="file" id="exam"
+            name="file" accept="image/*" /></div>
 </div>
 <div class="template-pic">
     <label for="file">Choose Template</label>
-    <input type="file"
-           id="file"
-           (change)="handleTemplatePic($event.target.files[0])">
+    <div class="caption">Template <input (change)="readDataUrlTemplate($event)" #fileInput type="file" id="template"
+      name="file" accept="image/*" /></div>
+</div> -->
+<div>
+  <table cellpadding="0" cellspacing="0" width="0" border="0">
+    <tr>
+      <td>
+        <div class="caption">Exam <input (change)="readDataUrlExam($event)" #fileInput type="file" id="examInput"
+            name="file" accept="image/*" /></div>
+      </td>
+      <td>
+        <div class="caption">Template <input (change)="readDataUrlTemplate($event)" #fileInput type="file" id="templateInput"
+            name="file" accept="image/*" /></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <canvas #examCanvas id="examCanvas"></canvas>
+      </td>
+      <td>
+        <canvas #templateCanvas id="templateCanvas"></canvas>
+      </td>
+    </tr>
+    <tr>
+    <tr>
+      <td>
+        <canvas #canvasOutput id="canvasOutput"></canvas>
+      </td>
+    </tr>
+  </table>
 </div>
-<button (click)="scanExam()" class="match-template">Scan Exam</button>
+<div>
+  <div class="match-template"><button (click)="scanExam2()" [disabled]="!classifiersLoaded$ | async">Scan Exam</button></div>
+</div>
 <button (click)="foo()" class="match-template">just for fun</button>
 <div *ngIf="result">
-    <img id="result" [src]='result'/>
+    <img id="result2" [src]='result2'/>
     <div *ngIf="!doneEditing">
       <button (click)="edit()">Edit</button>
     </div>

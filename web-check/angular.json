@@ -27,7 +27,10 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+				"src/assets/opencv/opencv_init.js",
+				"src/assets/opencv/opencv.js"
+			]
           },
           "configurations": {
             "production": {
@@ -124,6 +127,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "web-check"
+    }
+  },
+  "defaultProject": "web-check",
+  "cli": {
+    "analytics": "944ba3c1-cc45-40f8-9f9a-cab42e5741ae"
+  }
 }
